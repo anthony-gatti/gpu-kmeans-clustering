@@ -15,10 +15,10 @@ These implementations are evaluated on their ability to scale with increasing da
 
 ## Implementations
 
-- `serial_kmeans.cpp`: Sequential CPU implementation.
-- `openacc_kmeans.cpp`: OpenACC-accelerated implementation with automatic GPU parallelization.
-- `kmcuda_interface.cpp`: Wrapper to interface with the KM-CUDA library.
-- `cuda_kmeans.cu`: Handwritten CUDA kernel implementation for full control over memory layout and execution.
+- `kmeans-serial.cpp`: Sequential CPU implementation.
+- `kmeans-gpu-v1.cpp`: Wrapper to interface with the KM-CUDA library.
+- `kmeans-gpu-v2.cpp`: OpenACC-accelerated implementation with automatic GPU parallelization.
+- `kmeans-gpu-v3.cu`: Handwritten CUDA kernel implementation for full control over memory layout and execution.
 
 Each version is built using `make`, with options to toggle between implementations via preprocessor flags.
 
