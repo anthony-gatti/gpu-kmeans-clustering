@@ -29,3 +29,28 @@ Each version is built using `make`, with options to toggle between implementatio
 ```bash
 make
 ```
+
+### Benchmarking
+```bash
+python3 benchmark.py
+```
+This script runs all versions of the K-Means algorithm across various configurations and records the execution time for comparison.
+
+### Plotting Results
+```bash
+python3 plot.py
+```
+This generates performance graphs that compare the different implementations over:
+- Varying K values
+- Dataset size (rows × features)
+- Dimensionality
+
+## Benchmark Highlights
+- **KM-CUDA** is the fastest for most large datasets and higher K values, benefiting from optimized production-level code.
+- **Handwritten CUDA kernels** are competitive and sometimes outperform KM-CUDA on high-dimensional datasets, thanks to careful shared memory use and loop unrolling.
+- **OpenACC** is effective on small datasets or low K values but scales poorly due to limited control over memory and thread synchronization.
+- **Serial implementation** serves as a performance baseline and predictably lags behind for larger workloads.
+
+## Notes
+- Performance graphs are available via the plot.py script, though raw benchmark data is not included in this repository.
+- Profiling was conducted using NVIDIA Nsight to optimize kernel execution and memory access patterns.
