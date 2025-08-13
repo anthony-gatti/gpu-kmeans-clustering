@@ -38,12 +38,15 @@ Each version is built with `make`, with preprocessor flags to toggle implementat
 ## Reproduce in 60s
 
 ```bash
-# 1) Build (adjust toolchain/paths as needed)
+# 1) Build (uses g++/nvcc per Makefile)
 make
 
-# 2) Run a small example (replace with your dataset path)
-# Example CLI; adjust flags to your binary names/options
-./bin/kmeans_cuda data/iris.csv --k 5 --iters 50 --seed 1
+# 2) Run a small example (uses stdin)
+./kmeans-serial   < datasets/dataset3.txt
+./kmeans-gpu-v2   < datasets/dataset3.txt    # OpenACC
+./kmeans-gpu-v3   < datasets/dataset3.txt    # CUDA
+# Optional (requires KMCUDA built in ../kmcuda/build):
+./kmeans-gpu-v1   < datasets/dataset3.txt    # KMCUDA wrapper
 
 # 3) Benchmark all implementations (produces CSVs in ./results/)
 python3 benchmark.py
