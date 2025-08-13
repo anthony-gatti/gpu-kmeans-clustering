@@ -11,7 +11,6 @@ This project explores multiple implementations of the K-Means clustering algorit
   <img src="./results_63600x149.png" alt="K-Means results on 63,600×149 dataset" width="560">
 </p>
 
-*Hardware/Env (example):* NVIDIA A5000 · CUDA 12.x · Driver 535+ · Nsight Compute 2024.x · Python 3.10  
 *Reproduce:* see **Reproduce in 60s** below.
 
 ---
